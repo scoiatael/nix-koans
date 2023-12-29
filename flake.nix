@@ -29,7 +29,7 @@
 
                 `nix develop -c reset` unless File.directory?("koans")
 
-                report = `nix eval --impure --expr 'import ./koans/test.nix {}' --json`
+                report = `nix develop -c report --json`
                 doc = JSON.parse! report
                 passed, failed = doc.partition { |k, v| v.empty? }
                 pb = ProgressBar.create(title: "Your progress", starting_at: passed.size, total: doc.size, format: "%t (%c/%C) [%B]")
@@ -43,6 +43,11 @@
                   puts "Medidate on #{fname}" + if line then ":#{line}" else "" end
                 end
               '';
+            }
+            {
+              name = "report";
+              command = ''
+                nix eval --impure --expr 'import ./koans/test.nix {}' "''${@}" '';
             }
             {
               name = "reset";
