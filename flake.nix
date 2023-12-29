@@ -18,29 +18,37 @@
 
       perSystem = { pkgs, ... }: {
         devshells.default = {
-          commands = [{
-            name = "check";
-            command = ''
-              #!/usr/bin/env ruby
+          commands = [
+            {
+              name = "check";
+              command = ''
+                #!/usr/bin/env ruby
 
-              require 'json'
-              require 'ruby-progressbar'
+                require 'json'
+                require 'ruby-progressbar'
 
-              report = `nix eval --impure --expr 'import ./templates/test.nix {}' --json`
-              doc = JSON.parse! report
-              passed, failed = doc.partition { |k, v| v.empty? }
-              pb = ProgressBar.create(title: "Your progress", starting_at: passed.size, total: doc.size, format: "%t (%c/%C) [%B]")
-              pb.stop
+                `nix develop -c reset` unless File.directory?("koans")
 
-              if f = failed.first
-                fname = Dir["templates/#{f.first}*"].first
-                lines = File.read(fname).lines.each.with_index(1).to_a
-                names = f.last.map { |x| x["name"] }
-                line = names.map { |n| lines.select { |l, ln| l.include? n }.first&.last }.min
-                puts "Medidate on #{fname}" + if line then ":#{line}" else "" end
-              end
-            '';
-          }];
+                report = `nix eval --impure --expr 'import ./koans/test.nix {}' --json`
+                doc = JSON.parse! report
+                passed, failed = doc.partition { |k, v| v.empty? }
+                pb = ProgressBar.create(title: "Your progress", starting_at: passed.size, total: doc.size, format: "%t (%c/%C) [%B]")
+                pb.stop
+
+                if f = failed.first
+                  fname = Dir["koans/#{f.first}*"].first
+                  lines = File.read(fname).lines.each.with_index(1).to_a
+                  names = f.last.map { |x| x["name"] }
+                  line = names.map { |n| lines.select { |l, ln| l.include? n }.first&.last }.min
+                  puts "Medidate on #{fname}" + if line then ":#{line}" else "" end
+                end
+              '';
+            }
+            {
+              name = "reset";
+              command = "rm -rf koans; cp -r .templates koans";
+            }
+          ];
 
           packages =
             [ (pkgs.ruby_3_3.withPackages (ps: [ ps.ruby-progressbar ])) ];
