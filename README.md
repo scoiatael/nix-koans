@@ -3,8 +3,6 @@ Simple koans for learning nix. Inspired by [ruby koans](https://www.rubykoans.co
 
 ## Getting started
 
-Edit files in `koans/`.
-
 Check your progress with `nix develop -c check`. Edit files in `koans/` directory. Make one pass, refactor, move on to the next :)
 
 Reset with `nix develop -c reset`.

@@ -1,4 +1,4 @@
 strict_env
 
 # Avoid having to type `nix develop` each time
-use nix
+use flake
