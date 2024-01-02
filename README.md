@@ -1,6 +1,8 @@
 # nix-koans
 Simple koans for learning nix. Inspired by [ruby koans](https://www.rubykoans.com).
 
+New to nix? Start [here](nix_INTRO.md).
+
 ## Getting started
 
 Check your progress with `nix develop -c check`. Edit files in `koans/` directory. Make one pass, refactor, move on to the next :)
