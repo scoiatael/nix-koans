@@ -54,5 +54,22 @@ Sources:
 
 # Why a separate language?
 
-TODO: flesh out this section
+A fair question is: why do we need a new language?
+A (possibly) simpler solution would be to use an existing general programming language, like TypeScript, Python, or maybe a configuration language like YAML or TOML and build on top of that.
 
+What would be the pros of that?
+- no need to learn a new syntax and semantics,
+- we could leverage existing set of packages,
+- we could leverage existing package registry system,
+
+Now consider that in any language used "build expressions" have to be "pure" - in the mathematical sense - to capture all dependencies of given package.
+That doesn't mean that programming language used has to be pure, but makes implementation a bit harder (since theoretical "nix.py"/"nix.ts" cannot be a shallow DSL in given language),
+That in turn means that our general programming language would have to just output certain structures to be consumed by the "nix driver", which evaluates them as expressions.
+
+And that effectively nullifies everything we'd gain by using an existing language: one has to learn new semantics (of that nix driver), and can't just use any existing libraries since these need to be compatible with "nix expressions".
+Instead we can write a new language that directly corresponds to the needs of this new system, which is well described in 4.1 section of "nix thesis" :)
+
+Sources:
+- https://jonathanlorimer.dev/posts/nix-thesis.html
+- https://edolstra.github.io/pubs/phd-thesis.pdf
+- https://jade.fyi/blog/flakes-arent-real/
