@@ -14,4 +14,8 @@ in {
     expected = "surprise!";
     transform = (x: (x // { expected = "another surprise"; }));
   });
+  "2_01" = runTests (import ./2_01_about_semantics.nix { });
+  "2_02" = runTests (import ./2_02_about_builtins.nix { });
+  "2_03" = runTests (import ./2_03_about_imports.nix { inherit pkgs; });
+  "2_04" = runTests (import ./2_04_about_recursion.nix { inherit pkgs; });
 }

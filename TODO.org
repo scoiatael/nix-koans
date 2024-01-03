@@ -1,5 +1,5 @@
 #+title: TODO for nix-koans
-* [0%] 2. About builtins & nixpkgs.lib
+* DONE 2. About builtins & nixpkgs.lib
 https://teu5us.github.io/nix-lib.html
 * [0%] 3. About integration between nix lang and nix store
 * [0%] 4. Derivations
