@@ -1,6 +1,6 @@
 { ... }:
 
-# Take a look at ttps://teu5us.github.io/nix-lib.html#nix-builtin-functions
+# Take a look at https://teu5us.github.io/nix-lib.html#nix-builtin-functions
 # For a reference
 {
   test_concatLists = {
