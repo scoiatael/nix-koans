@@ -2,6 +2,7 @@
 let
   inherit (pkgs) lib;
   inherit (lib) runTests;
+  flags = import ./flags.nix;
 in {
   "1_01" = runTests { test_1_01 = import ./1_01_about_asserts.nix; };
   "1_02" = runTests (import ./1_02_about_complex_asserts.nix);
@@ -21,4 +22,7 @@ in {
   "3_01" = runTests (import ./3_01_about_nix_store.nix { inherit pkgs lib; });
   "3_02" = runTests (import ./3_02_about_network.nix { inherit pkgs lib; });
   "3_03" = runTests (import ./3_03_about_derivations.nix { inherit pkgs lib; });
+  "4_01" = runTests (import ./4_01_about_shell.nix { inherit pkgs lib flags; });
+  "4_02" = runTests
+    (import ./4_02_about_derivations_again.nix { inherit pkgs lib flags; });
 }
