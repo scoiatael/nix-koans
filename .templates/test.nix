@@ -18,4 +18,7 @@ in {
   "2_02" = runTests (import ./2_02_about_builtins.nix { });
   "2_03" = runTests (import ./2_03_about_imports.nix { inherit pkgs; });
   "2_04" = runTests (import ./2_04_about_recursion.nix { inherit pkgs; });
+  "3_01" = runTests (import ./3_01_about_nix_store.nix { inherit pkgs lib; });
+  "3_02" = runTests (import ./3_02_about_network.nix { inherit pkgs lib; });
+  "3_03" = runTests (import ./3_03_about_derivations.nix { inherit pkgs lib; });
 }
