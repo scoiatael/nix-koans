@@ -2,7 +2,7 @@
 
 As you saw in the previous example, the `pkgs` argument to `shell.nix` can be an import.
 
-By default `import <nixpkgs>` will version of user current `nixpkgs` channel. 
+By default `import <nixpkgs>` will pick current version of user `nixpkgs` channel. 
 
 This is bad for repeatability - each developer will have checked out a different version of the channel - and some may not even have updated in a long while!
 
