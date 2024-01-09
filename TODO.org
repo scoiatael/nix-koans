@@ -1,8 +1,8 @@
 #+title: TODO for nix-koans
 * DONE 2. About builtins & nixpkgs.lib
 https://teu5us.github.io/nix-lib.html
-* [0%] 3. About integration between nix lang and nix store
-* [0%] 4. Derivations
+* DONE 3. About integration between nix lang and nix store
+* DONE 4. Derivations
 * [0%] 5. Flakes
 * Possible additions:
 https://www.tweag.io/blog/2023-02-09-nixos-vm-on-macos/
