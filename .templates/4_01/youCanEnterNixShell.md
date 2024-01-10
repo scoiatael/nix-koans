@@ -10,10 +10,10 @@ From previous koans we know that nix the language can be used to write complex b
 
 `nix-shell` is (was?) primarily designed to help debug the process: create an interactive shell, where the build process can be tested and tweaked.
 
-Henceforth it:
+And so its job is to:
 - build all dependencies,
-- sets up build environment,
-- starts configured shell (by default bash) in that environment,
+- set up build environment,
+- start configured shell (by default bash) in that environment,
 
 It turned out that this process is quite useful in different contexts.
 For me it's per-project dependency management.
