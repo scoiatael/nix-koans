@@ -6,7 +6,7 @@
       "multiUser": true,
       "version": "latest",
       // Needed for flakes & nix-direnv:
-      "extraNixConfig": "experimental-features = nix-command flakes,keep-outputs = true,keep-derivations = true"
+      "extraNixConfig": "allowed-users = *,experimental-features = nix-command flakes,keep-outputs = true,keep-derivations = true"
     }
   },
   "onCreateCommand": {
