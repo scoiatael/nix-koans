@@ -40,7 +40,7 @@
                   lines = File.read(fname).lines.each.with_index(1).to_a
                   names = f.last.map { |x| x["name"] }
                   line = names.map { |n| lines.select { |l, ln| l.include? n }.first&.last }.min
-                  puts "Medidate on #{fname}" + if line then ":#{line}" else "" end
+                  puts "Meditate on #{fname}" + if line then ":#{line}" else "" end
                 end
               '';
             }
